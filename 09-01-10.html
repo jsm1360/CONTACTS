@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const {pageno, pagesize, totalcount, blockSize=5} = {pageno:1, pagesize:10, totalcount:102};
+    // 페이지의 개수
+    const numberOfPages = Math.ceil(totalcount/pagesize);
+    for(let i=1; i<=11; i++) {
+      // 1을 빼도 되나? 개발자가 pageno는 1이상이 되게 책임진다 -> 계산할 때 0나와도 된다
+      //console.log(i, Math.floor((i-1)/blockSize));
+    }
+    
+    // pageno   prev    start   end     next
+    //  1~5      0        1      5       6
+    //  6~10     5        6      10      11
+    //  11      10       11    15->11   16->0
+    for(let i=1; i<=11; i++) {
+      const prev = Math.floor((i-1)/blockSize) * blockSize;
+      const start = prev + 1;
+      let end = prev + blockSize;
+      let next = end + 1;
+     // 페이지의 개수가 11개이므로, 12이상은 나올 수 없다
+     if(end>=numberOfPages) {
+      end = numberOfPages;
+      next = 0;
+     }
+     console.log(i, prev, start, end, next);
+    }
+  </script>
+</body>
+</html>

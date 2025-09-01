@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>응답방식</title>
+</head>
+<body>
+  <ul id="target">
+
+  </ul>
+  <script>
+    // 백의 응답 방식
+    // 1. 처리결과를 가지고 html을 만들어서 응답 -> 프론트는 응답을 그대로 화면에 출력(legacy, MVC)
+    // 2. 처리결과만 응답 -> 프론트에서 응답을 가지고 화면에 구성(REST)
+
+    // 즉 화면을 누가 만드느냐의 차이
+
+    // axios로 요청을 보내면 서버가 응답한다 -> JSON.parse() 필요없음. 브라우저가 객체로 변환
+    const $target = document.getElementById('target');
+
+    axios.get('https://sample.bmaster.kro.kr/contacts?pageno=2&pagesuze=4')
+    .then(function(res) {
+      let html = ``;
+      for(const c of res.data.contacts) {
+        html+=`<li>${c.name} <img src='${c.photo}'></li>`
+      }
+      $target.innerHTML = html;
+    })
+  </script>
+</body>
+</html>
