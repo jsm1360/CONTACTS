@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Side Rendering</title>
+</head>
+<body>
+  <form action="www.naver.com">
+    <input type="text" id="nai" name="nai">
+    <button>보내기</button>
+  </form>
+  <!--
+    -- 전통적인 웹(동기처리) -> 화면을 다시 그린다
+    1. 사용자가 요청하면 백이 처리결과를 html로 만들어서 보내준다
+       프론트 화면은 백이 보낸 화면으로 전환된다
+    2. 요청을 보내면 주소가 바뀐다(redirct)
+
+    -- AJAX (비동기처리) -> 화면을 부분 갱신
+    1. 현재 화면 처리 별도로 서버에 요청을 보내는 기술
+       대표적으로 구현 기술로는 vanilla js의 fetch, asios
+    2. 서버가 처리결과를 보내주면 프론트가 그 결과를 렌더링
+    (CSR : Client Side Rendering)
+
+    -- 요즘 들어 전통적인 방식을 CSR의 반대라고 해서 Server Side Rendering(SSR)
+
+    3. SPA (Single Page Application) -> react, vue로 작성
+    -- html을 한장만 두고 AJAX+부분갱신으로 앱을 작성
+  -->
+</body>
+</html>
